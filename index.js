@@ -256,14 +256,14 @@ function getOlderCars(inventory, maxYear) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(inventory) {
-  let newArray =[];
+function getGermanCars(inventory){
+  let newArrayGerman =[];
   for (let i = 0; i < inventory.length; i++) {
   if (inventory[i].car_make === "Audi" || inventory[i].car_make === "Mercedes-Benz" || inventory[i].car_make === "Volkswagen"|| inventory[i].car_make === "BMW") {
-    newArray.push(inventory[i]);
+    newArrayGerman.push(inventory[i]);
   }
 }
-console.log(JSON.stringify(newArray));
+  return newArrayGerman;
 }
 
 
@@ -330,7 +330,7 @@ if (typeof exports !== 'undefined') {
   if (sortCarInventory) { module.exports.sortCarInventory = sortCarInventory }
   if (getModelYears) { module.exports.getModelYears = getModelYears }
   if (getOlderCars) { module.exports.getOlderCars = getOlderCars }
-  // if (getGermanCars) { module.exports.getGermanCars = getGermanCars }
+  if (getGermanCars) { module.exports.getGermanCars = getGermanCars }
   if (sum) { module.exports.sum = sum }
   if (addFive) { module.exports.addFive = addFive }
   if (argTimesTwo) { module.exports.argTimesTwo = argTimesTwo }
