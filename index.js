@@ -214,11 +214,11 @@ function sortCarInventory(inventory) {
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
 function getModelYears(inventory) {
-  let carYears = [];
-  for(let i = 0; i < inventory.length; i++){
-    return carYears.push(inventory[i].car_year);
-  }
-} 
+  let yearsArray = []
+  for (let i=0; i<inventory.length; i++)
+      yearsArray[i]=inventory[i].car_year;
+  return yearsArray;
+}
 
 /**
  * ### Challenge `getOlderCars`
@@ -232,9 +232,18 @@ function getModelYears(inventory) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
-}
+function getOlderCars(inventory, maxYear) {
+
+  let newArray = [];
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].car_year <= maxYear) {
+    newArray === newArray.push(inventory[i]);
+    }
+   }
+   return newArray;   
+
+  }
+
 
 /**
  * ### Challenge `getGermanCars`
@@ -247,9 +256,21 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(inventory) {
+  let newArray =[];
+  for (let i = 0; i < inventory.length; i++) {
+  if (inventory[i].car_make === "Audi" || inventory[i].car_make === "Mercedes-Benz" || inventory[i].car_make === "Volkswagen"|| inventory[i].car_make === "BMW") {
+    newArray.push(inventory[i]);
+  }
 }
+console.log(JSON.stringify(newArray));
+}
+
+
+//   if (inventory.car_make === "Audi" || inventory.car_make === "Mercedez-Benz" || inventory.car_make === "Volkswagen" || inventory.car_make === "BMW"){
+//     return ${inventory[i].car_make};
+//   }
+// }
 
 /**
  * ### Challenge refactor to arrow functions
@@ -309,7 +330,7 @@ if (typeof exports !== 'undefined') {
   if (sortCarInventory) { module.exports.sortCarInventory = sortCarInventory }
   if (getModelYears) { module.exports.getModelYears = getModelYears }
   if (getOlderCars) { module.exports.getOlderCars = getOlderCars }
-  if (getGermanCars) { module.exports.getGermanCars = getGermanCars }
+  // if (getGermanCars) { module.exports.getGermanCars = getGermanCars }
   if (sum) { module.exports.sum = sum }
   if (addFive) { module.exports.addFive = addFive }
   if (argTimesTwo) { module.exports.argTimesTwo = argTimesTwo }
